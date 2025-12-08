@@ -69,7 +69,7 @@ input[type="text"],
 input[type="date"],
 input[type="time"],
 input[type="number"],
-#stadiumBox,
+#resultBox,
 select {
     width:100%;
     padding:0.6rem 0.75rem;
@@ -200,12 +200,14 @@ hr.sep { border:0; height:1px; background:#f0f4ff; margin:0.75rem 0 1rem 0; bord
     background: #eef4ff;
 }
 
-#stadiumBox{
+.resultBox{
     display: none;
     height: 5em;
     margin-top: .2em;
+    border-radius:8px;
+    border:1px solid #e6e9ef;
 }
 
-#stadiumBox>h3,p{
+.resultBox>h3,p{
     margin: 0.2em;
 }

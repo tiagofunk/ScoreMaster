@@ -31,9 +31,9 @@
                 <div class="autocomplete-container">
                     <label for="stadium">Estádio</label>
                     <input type="text" id="stadiumSearch" autocomplete="off" placeholder="Digite o nome do estádio" required>
-                    <input type="hidden" id="stadium" name="stadiumId">
+                    <input type="hidden" id="stadiumHiddenInput" name="stadiumId">
                     <ul id="stadiumSuggestions" class="autocomplete-list"></ul>
-                    <div id="stadiumBox" class="stadiumBoxHidden">
+                    <div id="stadiumBox" class="resultBox">
                         <h3>Nome</h3>
                         <p>Cidade - País</p>
                     </div>
@@ -44,22 +44,26 @@
                     <input type="number" id="capacity" name="capacity" min="0" placeholder="50000">
                 </div>
 
-                <div>
+                <div class="autocomplete-container">
                     <label for="homeClub">Clube Mandante</label>
-                    <select id="homeClub" name="homeClubId" required>
-                        <option value="">— selecione —</option>
-                        <option value="1">Clube A</option>
-                        <option value="2">Clube B</option>
-                    </select>
+                    <input type="text" id="homeClubSearch" autocomplete="off" placeholder="Digite o nome do clube" required>
+                    <input type="hidden" id="homeClubHiddenInput" name="homeClub">
+                    <ul id="homeClubeSuggestions" class="autocomplete-list"></ul>
+                    <div id="homeClubeBox" class="resultBox">
+                        <h3>Nome</h3>
+                        <p>Cidade - País</p>
+                    </div>
                 </div>
 
-                <div>
+                <div class="autocomplete-container">
                     <label for="awayClub">Clube Visitante</label>
-                    <select id="awayClub" name="awayClubId" required>
-                        <option value="">— selecione —</option>
-                        <option value="2">Clube B</option>
-                        <option value="3">Clube C</option>
-                    </select>
+                    <input type="text" id="awayClubSearch" autocomplete="off" placeholder="Digite o nome do clube" required>
+                    <input type="hidden" id="awayClubHiddenInput" name="awayClub">
+                    <ul id="awayClubeSuggestions" class="autocomplete-list"></ul>
+                    <div id="awayClubeBox" class="resultBox">
+                        <h3>Nome</h3>
+                        <p>Cidade - País</p>
+                    </div>
                 </div>
             </div>
 

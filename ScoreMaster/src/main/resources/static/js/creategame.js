@@ -1,12 +1,35 @@
-const searchInput = document.getElementById("stadiumSearch");
-const stadiumIdInput = document.getElementById("stadium");
-const suggestionList = document.getElementById("stadiumSuggestions");
-const stadiumBox = document.getElementById("stadiumBox")
 let timeout;
 
-searchInput.addEventListener("input", function () {
+createSuggestionEvent(
+    document.getElementById("stadiumSearch"),
+    document.getElementById("stadiumHiddenInput"),
+    document.getElementById("stadiumSuggestions"),
+    document.getElementById("stadiumBox"),
+    "/stadiums/search?name="
+);
+
+createSuggestionEvent(
+    document.getElementById("homeClubSearch"),
+    document.getElementById("homeClubHiddenInput"),
+    document.getElementById("homeClubeSuggestions"),
+    document.getElementById("homeClubeBox"),
+    "/clubs/search?name="
+);
+
+createSuggestionEvent(
+    document.getElementById("awayClubSearch"),
+    document.getElementById("awayClubHiddenInput"),
+    document.getElementById("awayClubeSuggestions"),
+    document.getElementById("awayClubeBox"),
+    "/clubs/search?name="
+);
+
+function createSuggestionEvent(
+    searchInput, hiddenInput, suggestionList, resultBox, url
+){
+    searchInput.addEventListener("input", function () {
     const query = searchInput.value.trim();
-    stadiumIdInput.value = ""; // limpar id se alterar texto
+    hiddenInput.value = ""; // limpar id se alterar texto
 
     if (timeout) clearTimeout(timeout);
     
@@ -16,7 +39,7 @@ searchInput.addEventListener("input", function () {
     }
 
     timeout = setTimeout(async () => {
-        const response = await fetch(`/stadiums/search?name=${encodeURIComponent(query)}`);
+        const response = await fetch(`${url}${encodeURIComponent(query)}`);
 
         if (!response.ok) return;
         const stadiums = await response.json();
@@ -25,15 +48,14 @@ searchInput.addEventListener("input", function () {
         if (stadiums.length > 0) {
             stadiums.forEach(s => {
                 const li = document.createElement("li");
-                console.log(s)
                 li.textContent = s.name + " - " + s.city + " - " + s.country;
                 li.addEventListener("click", () => {
                     searchInput.value = s.name;
-                    stadiumIdInput.value = s.id; 
+                    hiddenInput.value = s.id; 
                     suggestionList.style.display = "none";
-                    stadiumBox.querySelector("h3").textContent=s.name;
-                    stadiumBox.querySelector("p").textContent=s.city + " - " + s.country;
-                    stadiumBox.style.display = "block";
+                    resultBox.querySelector("h3").textContent=s.name;
+                    resultBox.querySelector("p").textContent=s.city + " - " + s.country;
+                    resultBox.style.display = "block";
                 });
                 suggestionList.appendChild(li);
             });
@@ -44,9 +66,10 @@ searchInput.addEventListener("input", function () {
     }, 300); // debounce
 });
 
-// fechar lista ao clicar fora
-document.addEventListener("click", (e) => {
-    if (!e.target.closest("#stadiumSearch")) {
-        suggestionList.style.display = "none";
-    }
-});
+    // fechar lista ao clicar fora
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("#stadiumSearch")) {
+            suggestionList.style.display = "none";
+        }
+    });
+}

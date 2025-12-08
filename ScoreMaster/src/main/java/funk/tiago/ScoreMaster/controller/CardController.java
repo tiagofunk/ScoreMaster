@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import funk.tiago.ScoreMaster.model.Card;
 import funk.tiago.ScoreMaster.model.CardRequest;
-import funk.tiago.ScoreMaster.model.Goal;
-import funk.tiago.ScoreMaster.model.GoalRequest;
 import funk.tiago.ScoreMaster.model.Player;
 import funk.tiago.ScoreMaster.repository.CardRepository;
-import funk.tiago.ScoreMaster.repository.GoalRepository;
 import funk.tiago.ScoreMaster.repository.PlayerRepository;
 
 @RestController
