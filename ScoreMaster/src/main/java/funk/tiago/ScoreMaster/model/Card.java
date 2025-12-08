@@ -18,8 +18,15 @@ public class Card {
     @ManyToOne
     @JoinColumn(name = "id_player")
     private Player player;
+    private boolean homeCard;
     private boolean yellowCard;
     private String minute;
+    public boolean isHomeCard() {
+        return homeCard;
+    }
+    public void setHomeCard(boolean homeCard) {
+        this.homeCard = homeCard;
+    }
     public long getId() {
         return id;
     }

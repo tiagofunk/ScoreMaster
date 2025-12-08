@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import funk.tiago.ScoreMaster.model.Stadium;
@@ -28,7 +29,13 @@ public class StadiumController {
     }
 
     @PostMapping("/")
-    public Stadium saveClub(@RequestBody Stadium stadium ){
+    public Stadium saveStadium(@RequestBody Stadium stadium ){
         return stadiumRepository.save(stadium);
     }
+
+    @GetMapping("/search")
+    public List<Stadium> searchStadiums(@RequestParam String name) {
+        return stadiumRepository.findByNameContainingIgnoreCase(name);
+    }
+
 }

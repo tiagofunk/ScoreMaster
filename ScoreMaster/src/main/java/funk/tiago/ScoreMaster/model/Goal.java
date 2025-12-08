@@ -18,8 +18,15 @@ public class Goal {
     @JoinColumn(name = "id_player")
     private Player player;
     private String minute;
+    private boolean homeGoal;
     private boolean ownGoal;
     private boolean penaltyGoal;
+    public boolean isHomeGoal() {
+        return homeGoal;
+    }
+    public void setHomeGoal(boolean homeGoal) {
+        this.homeGoal = homeGoal;
+    }
     public long getId() {
         return id;
     }

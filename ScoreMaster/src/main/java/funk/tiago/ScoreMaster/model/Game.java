@@ -1,5 +1,6 @@
 package funk.tiago.ScoreMaster.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,35 +29,18 @@ public class Game {
     @ManyToOne
     @JoinColumn(name = "id_home_club")
     private Club homeClub;
-    @OneToMany
-    @JoinColumn(name = "id_game")
-    private List<Goal> homeGoals;
-    @OneToMany
-    @JoinColumn(name = "id_card")
-    private List<Card> homeCards;
-
     @ManyToOne
     @JoinColumn(name = "id_away_club")
     private Club awayClub;
+
     @OneToMany
     @JoinColumn(name = "id_game")
-    private List<Goal> awayGoals;
+    private List<Goal> goals = new ArrayList<>();
     @OneToMany
     @JoinColumn(name = "id_card")
-    private List<Card> awayCards;
+    private List<Card> cards = new ArrayList<>();
 
-    public List<Card> getHomeCards() {
-        return homeCards;
-    }
-    public void setHomeCards(List<Card> homeCards) {
-        this.homeCards = homeCards;
-    }
-    public List<Card> getAwayCards() {
-        return awayCards;
-    }
-    public void setAwayCards(List<Card> awayCards) {
-        this.awayCards = awayCards;
-    }
+    
     public long getId() {
         return id;
     }
@@ -93,17 +77,18 @@ public class Game {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-    public List<Goal> getHomeGoals() {
-        return homeGoals;
+    public List<Goal> getGoals() {
+        return goals;
     }
-    public void setHomeGoals(List<Goal> homeGoals) {
-        this.homeGoals = homeGoals;
+    public void setGoals(List<Goal> goals) {
+        this.goals = goals;
     }
-    public List<Goal> getAwayGoals() {
-        return awayGoals;
+    public List<Card> getCards() {
+        return cards;
     }
-    public void setAwayGoals(List<Goal> awayGoals) {
-        this.awayGoals = awayGoals;
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
     }
+    
     
 }

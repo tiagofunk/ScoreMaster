@@ -15,4 +15,9 @@ public class HomeController {
     public String createPlayerPage() {
         return "createplayer";
     }
+
+    @GetMapping("/creategame")
+    public String createGamePage() {
+        return "creategame";
+    }
 }

@@ -1,0 +1,211 @@
+
+:root{
+    --bg:#f4f6f8;
+    --card:#ffffff;
+    --accent:#0b6efd;
+    --muted:#6b7280;
+    --radius:12px;
+    --gap:1rem;
+    --max-width:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    background:linear-gradient(180deg, #eef2ff 0%, var(--bg) 100%);
+    color:#111827;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:2rem;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+}
+
+.page {
+    width:100%;
+    max-width: var(--max-width);
+}
+
+header {
+    margin-bottom:1rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    margin:0;
+    font-size:1.25rem;
+}
+
+.card {
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:0 6px 18px rgba(15,23,42,0.06);
+    padding:1.25rem;
+}
+
+form .grid {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:var(--gap);
+}
+
+@media (max-width:900px){
+    form .grid{ grid-template-columns: 1fr; }
+}
+
+label{
+    display:block;
+    font-size:0.9rem;
+    margin-bottom:0.35rem;
+    color:var(--muted);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+#stadiumBox,
+select {
+    width:100%;
+    padding:0.6rem 0.75rem;
+    border-radius:8px;
+    border:1px solid #e6e9ef;
+    background:#fff;
+    font-size:0.95rem;
+    color:#0f172a;
+    outline:none;
+}
+input:focus, select:focus {
+    border-color: rgba(11,110,253,0.9);
+    box-shadow:0 0 0 4px rgba(11,110,253,0.08);
+}
+
+.section-title {
+    font-weight:600;
+    margin:0 0 0.75rem 0;
+    font-size:0.95rem;
+}
+
+.split {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:1rem;
+    margin-top:1rem;
+}
+@media (max-width:900px){ .split{ grid-template-columns: 1fr; } }
+
+.panel {
+    background: linear-gradient(180deg, rgba(7,89,178,0.03), rgba(255,255,255,0.0));
+    border: 1px solid #eef2ff;
+    border-radius:10px;
+    padding:0.85rem;
+}
+
+.mini-grid {
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    gap:0.5rem;
+    align-items:center;
+}
+@media (max-width:520px){
+    .mini-grid{ grid-template-columns: 1fr; }
+}
+
+.event-row {
+    display:flex;
+    gap:0.5rem;
+    align-items:center;
+    margin-bottom:0.5rem;
+}
+
+.event-row input[type="text"],
+.event-row input[type="number"] {
+    padding:0.5rem;
+    font-size:0.9rem;
+}
+
+.btn {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+    padding:0.6rem 0.8rem;
+    border-radius:8px;
+    border:none;
+    background:var(--accent);
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+    transition:transform .08s ease, box-shadow .08s ease;
+}
+.btn:active{ transform:translateY(1px); }
+.btn.secondary {
+    background:#fff;
+    color:#0f172a;
+    border:1px solid #e6e9ef;
+    font-weight:500;
+}
+
+.muted-note { font-size:0.85rem; color:var(--muted); margin-top:0.5rem; }
+
+/* small helper */
+.small { font-size:0.85rem; color:var(--muted); }
+
+/* layout for actions */
+.actions {
+    margin-top:1rem;
+    display:flex;
+    gap:0.75rem;
+    justify-content:flex-end;
+}
+
+/* subtle separators */
+hr.sep { border:0; height:1px; background:#f0f4ff; margin:0.75rem 0 1rem 0; border-radius:2px; }
+
+.autocomplete-container {
+    position: relative; /* importante para que o ul absoluto fique relativo a este pai */
+    display: inline-block;
+}
+
+.autocomplete-list {
+    list-style: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-top: 2px;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 180px;
+    overflow-y: auto;
+    display: none;
+    z-index: 10;
+}
+
+.autocomplete-list li {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.autocomplete-list li:hover {
+    background: #eef4ff;
+}
+
+#stadiumBox{
+    display: none;
+    height: 5em;
+    margin-top: .2em;
+}
+
+#stadiumBox>h3,p{
+    margin: 0.2em;
+}
