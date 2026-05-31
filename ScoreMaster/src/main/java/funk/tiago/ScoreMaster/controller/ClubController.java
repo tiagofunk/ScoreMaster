@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import funk.tiago.ScoreMaster.model.Club;
-import funk.tiago.ScoreMaster.model.Stadium;
 import funk.tiago.ScoreMaster.repository.ClubRepository;
 
 @RestController

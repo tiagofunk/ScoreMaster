@@ -20,4 +20,9 @@ public class HomeController {
     public String createGamePage() {
         return "creategame";
     }
+
+    @GetMapping("/createclub")
+    public String createClubPage() {
+        return "createclub";
+    }
 }

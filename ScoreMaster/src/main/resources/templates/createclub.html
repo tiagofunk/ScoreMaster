@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar clube</title>
+    <link rel="stylesheet" href="/css/createclub.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cadastrar clube</h1>
+
+        <form>
+            <div class="form-group">
+                <label for="name">Nome do time</label>
+                <input type="text" id="name" name="name" placeholder="Nome do time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">Cidade</label>
+                <input type="text" id="city" name="city" placeholder="Cidade do time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Pais</label>
+                <input type="text" id="country" name="country" placeholder="País do time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="birthday">Ano de Fundação</label>
+                <input type="date" id="foundation" name="foudation" placeholder="01-01-1999" required>
+            </div>
+
+            <button>Salvar Clube</button>
+        </form>
+
+    </div>
+
+    <script src="/js/createclub.js"></script>
+
+</body>
+</html>
