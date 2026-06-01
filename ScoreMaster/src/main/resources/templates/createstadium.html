@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Estádio</title>
+    <link rel="stylesheet" href="/css/createstadium.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cadastrar Estádio</h1>
+
+        <form>
+            <div class="form-group">
+                <label for="name">Nome do estádio</label>
+                <input type="text" id="name" name="name" placeholder="Nome do time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">Cidade</label>
+                <input type="text" id="city" name="city" placeholder="Cidade do estádio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Pais</label>
+                <input type="text" id="country" name="country" placeholder="País do estádio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="birthday">Data de Fundação</label>
+                <input type="date" id="foundation" name="foudation" placeholder="01-01-1999" required>
+            </div>
+
+            <div class="form-group">
+                <label for="capacity">Capacidade</label>
+                <input type="number" id="capacity" name="capacity" placeholder="15000" required>
+            </div>
+
+            <button>Salvar estádio</button>
+        </form>
+
+    </div>
+
+    <script src="/js/createstadium.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+}
+
+.container {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+input, select {
+    width: 95%;
+    padding: 0.8rem;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+}
+
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.form-check > input {
+    width: 10%;
+}
+
+.radios{
+    display: flex;
+    border: none;
+    padding: 0;
+}
+
+input[type=radio]{
+    accent-color: #007bff;
+}
+
+.porra{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0056b3;
+}
