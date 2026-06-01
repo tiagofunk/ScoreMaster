@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Estádios</title>
+    <link rel="stylesheet" href="/css/stadiums.css">
+</head>
+<body>
+
+<h1>Lista de Estádios</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th>País</th>
+            <th>Fundação</th>
+            <th>Capacidade</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="estadio : ${stadiums}">
+            <td th:text="${estadio.id}"></td>
+            <td th:text="${estadio.name}"></td>
+            <td th:text="${estadio.city}"></td>
+            <td th:text="${estadio.country}"></td>
+            <td class="foundation" th:text="${estadio.foundationYear}"></td>
+            <td class="capacity" th:text="${estadio.capacity}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
