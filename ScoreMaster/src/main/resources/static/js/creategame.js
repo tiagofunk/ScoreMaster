@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCapacityField(fieldsArea)
     loadHomeClubField(fieldsArea)
     loadAwayClubField(fieldsArea)
+    loadScore(fieldsArea)
     loadPlayerField(fieldsArea)
 
     createSuggestionEvent(
@@ -171,5 +172,14 @@ function loadPlayerField(fields) {
                 <h3>Nome</h3>
                 <p>País</p>
             </div>
+        </div>`
+}
+
+function loadScore(fields) {
+    fields.innerHTML += 
+        `<div class="score">
+            <div class="goals home">0</div>
+                x
+            <div class="goals away">0</div>
         </div>`
 }
