@@ -1,5 +1,7 @@
 package funk.tiago.ScoreMaster.model;
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +18,7 @@ public class Stadium {
     private String name;
     private String city;
     private String country;
-    private int foundationYear;
+    private Date foundation;
     private int capacity;
     public long getId() {
         return id;
@@ -42,11 +44,11 @@ public class Stadium {
     public void setCountry(String country) {
         this.country = country;
     }
-    public int getFoundationYear() {
-        return foundationYear;
+    public Date getFoundation() {
+        return foundation;
     }
-    public void setFoundationYear(int foundationYear) {
-        this.foundationYear = foundationYear;
+    public void setFoundation(Date foundation) {
+        this.foundation = foundation;
     }
     public int getCapacity() {
         return capacity;
