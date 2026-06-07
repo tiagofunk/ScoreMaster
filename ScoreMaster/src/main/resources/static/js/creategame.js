@@ -50,51 +50,6 @@ function createSuggestionEvent(
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const fieldsArea = document.getElementById("fieldsArea")
-    loadDateField(fieldsArea)
-    loadHourField(fieldsArea)
-    loadStadiumField(fieldsArea)
-    loadCapacityField(fieldsArea)
-    loadHomeClubField(fieldsArea)
-    loadAwayClubField(fieldsArea)
-    loadScore(fieldsArea)
-    loadPlayerField(fieldsArea)
-
-    createSuggestionEvent(
-        document.getElementById("stadiumSearch"),
-        document.getElementById("stadiumHiddenInput"),
-        document.getElementById("stadiumSuggestions"),
-        document.getElementById("stadiumBox"),
-        "/stadiums/search?name="
-    );
-
-    createSuggestionEvent(
-        document.getElementById("homeClubSearch"),
-        document.getElementById("homeClubHiddenInput"),
-        document.getElementById("homeClubeSuggestions"),
-        document.getElementById("homeClubeBox"),
-        "/clubs/search?name="
-    );
-
-    createSuggestionEvent(
-        document.getElementById("awayClubSearch"),
-        document.getElementById("awayClubHiddenInput"),
-        document.getElementById("awayClubeSuggestions"),
-        document.getElementById("awayClubeBox"),
-        "/clubs/search?name="
-    );
-
-    createSuggestionEvent(
-        document.getElementById("playerSearch"),
-        document.getElementById("playerHiddenInput"),
-        document.getElementById("playerSuggestions"),
-        document.getElementById("playerBox"),
-        "/players/search?name="
-    );
-
-});
-
 function loadDateField(fields) {
     fields.innerHTML += 
         `<div>
@@ -161,9 +116,8 @@ function loadAwayClubField(fields) {
         </div>`
 }
 
-function loadPlayerField(fields) {
-    fields.innerHTML += 
-        `<div class="autocomplete-container">
+function loadPlayerField() {
+    return `<div class="autocomplete-container">
             <label for="player">Gol do jogador</label>
             <input type="text" id="playerSearch" autocomplete="off" placeholder="Digite o nome do jogador" required>
             <input type="hidden" id="playerHiddenInput" name="player">
@@ -183,3 +137,77 @@ function loadScore(fields) {
             <div class="goals away">0</div>
         </div>`
 }
+
+function loadSwitch(label, text){
+    return `<div class="switch-container">
+                <label for="${label}">${text}</label>
+
+                <label class="switch">
+                    <input type="checkbox" id="${label}" name="${label}">
+                    <span class="slider"></span>
+                </label>
+            </div>`
+}
+function loadGoalField(fieldArea){
+    fieldArea.innerHTML += 
+        `<div id="goalField">
+            ${loadPlayerField(fieldsArea)}    
+            <div>
+                <label for="minute">Minute</label>
+                <input type="time" id="minute" name="minute" required>
+            </div>
+            
+            ${loadSwitch("homeGoal", "Mandante")}
+            ${loadSwitch("ownGoal", "Gol contra")}
+            ${loadSwitch("penaltyGoal", "Penalti")}
+            <input type="button" class="btn goalBtn" value="Salvar"/>
+        </div>`
+}
+
+var goalsHome = []
+var goalsAway = []
+
+document.addEventListener("DOMContentLoaded", () => {
+    const fieldsArea = document.getElementById("fieldsArea")
+    loadDateField(fieldsArea)
+    loadHourField(fieldsArea)
+    loadStadiumField(fieldsArea)
+    loadCapacityField(fieldsArea)
+    loadHomeClubField(fieldsArea)
+    loadAwayClubField(fieldsArea)
+    loadScore(fieldsArea)
+    loadGoalField(fieldsArea)
+
+    createSuggestionEvent(
+        document.getElementById("stadiumSearch"),
+        document.getElementById("stadiumHiddenInput"),
+        document.getElementById("stadiumSuggestions"),
+        document.getElementById("stadiumBox"),
+        "/stadiums/search?name="
+    );
+
+    createSuggestionEvent(
+        document.getElementById("homeClubSearch"),
+        document.getElementById("homeClubHiddenInput"),
+        document.getElementById("homeClubeSuggestions"),
+        document.getElementById("homeClubeBox"),
+        "/clubs/search?name="
+    );
+
+    createSuggestionEvent(
+        document.getElementById("awayClubSearch"),
+        document.getElementById("awayClubHiddenInput"),
+        document.getElementById("awayClubeSuggestions"),
+        document.getElementById("awayClubeBox"),
+        "/clubs/search?name="
+    );
+
+    createSuggestionEvent(
+        document.getElementById("playerSearch"),
+        document.getElementById("playerHiddenInput"),
+        document.getElementById("playerSuggestions"),
+        document.getElementById("playerBox"),
+        "/players/search?name="
+    );
+
+});

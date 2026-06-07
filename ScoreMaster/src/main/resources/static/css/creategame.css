@@ -231,3 +231,67 @@ hr.sep { border:0; height:1px; background:#f0f4ff; margin:0.75rem 0 1rem 0; bord
     border-radius: 5em;
     box-shadow: 1px 1px 1px 1px;
 }
+
+#goalField{
+    grid-column: 1 / 3;
+    display:grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
+    border: 1px solid gray;
+    border-radius: 2%;
+    box-shadow: 1px 1px 1px gray;
+    padding: 1%;
+}
+
+.switch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 26px;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+.goalBtn{
+    max-height: 3em; 
+    margin-top:  2em;
+}
